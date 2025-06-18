@@ -129,10 +129,8 @@
             v-model="note"
             @keydown.arrow-up.prevent="focusTitle"
           ></textarea>
-          <button v-if="checkEmpty()" @click="saveNote" class="save">
-            Save
-          </button>
-          <button v-else @click="saveEdit" class="save">potato</button>
+          <button v-if="!isEditing" @click="saveNote" class="save">Save</button>
+          <button v-else @click="saveEdit" class="save">Save Edit</button>
         </div>
       </div>
     </div>

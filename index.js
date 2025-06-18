@@ -64,6 +64,7 @@ const notes ={
            note:'',
            showNote:false,
            curentIndex:null,
+           isEditing:false,
         }
         
     },
@@ -83,6 +84,7 @@ const notes ={
         showNoteAdd()
         {
             this.showNote=true;
+            this.isEditing=false;
             document.body.classList.add("no-scroll");
         },
         hideNoteAdd()
@@ -92,7 +94,7 @@ const notes ={
         },
         saveNote()
         {
-            if(this.title != "" || this.note!="")
+            if(this.title.trim() != "" || this.note.trim()!="")
             {
                 this.notes.push({'title':this.title,'note':this.note});
                 this.title='';
@@ -109,37 +111,27 @@ const notes ={
           this.showNoteAdd();
           this.curentIndex=i;
           this.title=this.notes[i].title;
-          this.note=this.notes[i].note
-        },
-        checkEmpty()
-        {
-          if(this.title=="" && this.note=="")
-          {
-            return true
-          }
-          else{
-            return false
-          }
+          this.note=this.notes[i].note;
+          this.isEditing=true;
         },
         saveEdit()
         {
-          if(this.curentIndex!=null)
+          if(this.curentIndex!=null && (this.title.trim() != "" || this.note.trim()!=""))
           {
           this.notes[this.curentIndex].title=this.title;
           this.notes[this.curentIndex].note=this.note;
-          this.hideNoteAdd();
           this.note="";
           this.title="";
           }
+          this.hideNoteAdd();
         },
         backGroundResponse()
         {
-          if(this.checkEmpty())
+          if(this.isEditing)
           {
-            this.saveNote();
-          }
+            this.saveEdit();          }
           else{
-            this.saveEdit();
+            this.saveNote();
           }
         }
     },
