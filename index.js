@@ -63,6 +63,7 @@ const notes ={
            title:'',
            note:'',
            showNote:false,
+           curentIndex:null,
         }
         
     },
@@ -81,11 +82,13 @@ const notes ={
         },
         showNoteAdd()
         {
-            this.showNote=true
+            this.showNote=true;
+            document.body.classList.add("no-scroll");
         },
         hideNoteAdd()
         {
-            this.showNote=false
+            this.showNote=false;
+            document.body.classList.remove("no-scroll");
         },
         saveNote()
         {
@@ -100,12 +103,50 @@ const notes ={
         deleteNote(i)
         {
             this.notes.splice(i,1);
+        },
+        editNote(i)
+        {
+          this.showNoteAdd();
+          this.curentIndex=i;
+          this.title=this.notes[i].title;
+          this.note=this.notes[i].note
+        },
+        checkEmpty()
+        {
+          if(this.title=="" && this.note=="")
+          {
+            return true
+          }
+          else{
+            return false
+          }
+        },
+        saveEdit()
+        {
+          if(this.curentIndex!=null)
+          {
+          this.notes[this.curentIndex].title=this.title;
+          this.notes[this.curentIndex].note=this.note;
+          this.hideNoteAdd();
+          this.note="";
+          this.title="";
+          }
+        },
+        backGroundResponse()
+        {
+          if(this.checkEmpty())
+          {
+            this.saveNote();
+          }
+          else{
+            this.saveEdit();
+          }
         }
     },
     computed:
     {
         noteLength(){
-            return this.note.length;
+            return (this.note.length+this.title.length);
         }
     }
 }

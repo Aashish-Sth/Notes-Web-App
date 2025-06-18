@@ -4,6 +4,10 @@ body{
     background-color: #5F5AB2;
     margin: 0;
 }
+.no-scroll
+{
+    overflow: hidden;
+}
 .text{
     font-family: "Nunito", sans-serif;
     color: white;
@@ -134,7 +138,7 @@ body{
     padding: 20px;
     position: relative;
     transition: all 0.5s ease-in-out 0s;
-    align-self: flex-start;
+    /* align-self: flex-start; */
 }
 .noteBox:hover{
     transform: scale(1.05);
@@ -150,13 +154,14 @@ body{
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    width: 180px;
 }
 .noteBoxContent{
     margin: 0;
     font-size: 14px;
     display: -webkit-box;
-    -webkit-line-clamp: 9;
-    line-clamp: 9;
+    -webkit-line-clamp: 8;
+    line-clamp: 8;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -165,12 +170,12 @@ body{
 {
     color: white;
     align-self: flex-end;
-    position: absolute;
+    position: relative;
     opacity: 0;
     padding: 7px;
     transition: all 0.5s ease-in-out 0s;
-    top: 10px;
-    right: 9px;
+    /* top: 14px;
+    right: 12px; */
 }
 .trash:hover
 {
@@ -188,7 +193,7 @@ body{
     align-self: last baseline;
     position: fixed;
     bottom: 13px;
-    right: 26px;
+    right: 31px;
     color: white;
     transition: all 0.5s ease-in-out 0s;
     cursor: pointer;
@@ -203,7 +208,7 @@ body{
     width: 100px;
     position: fixed;
     bottom: 6px;
-    right: 0px;
+    right: 5px;
 }
 
 .gridHead

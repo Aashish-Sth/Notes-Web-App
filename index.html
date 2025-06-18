@@ -65,8 +65,15 @@
           "
         >
           <h1 class="head text gridHead">Your Notes — All Right Here</h1>
-          <div v-for="(each,index) in notes" class="noteBox">
-            <i @click="deleteNote(index)" class="bi bi-trash3-fill trash"></i>
+          <div
+            @click="editNote(index)"
+            v-for="(each,index) in notes"
+            class="noteBox"
+          >
+            <i
+              @click.stop="deleteNote(index)"
+              class="bi bi-trash3-fill trash"
+            ></i>
             <h1 class="text noteBoxTitle">{{each.title}}</h1>
             <p class="text noteBoxContent">{{each.note}}</p>
           </div>
@@ -82,12 +89,12 @@
       <!-- take note pop up -->
       <div
         v-if="showNote"
-        @click="saveNote"
+        @click="backGroundResponse"
         style="
           height: 100vh;
           width: 100vw;
           background-color: #ffffff20;
-          position: absolute;
+          position: fixed;
           top: 0;
           left: 0;
           display: flex;
@@ -122,7 +129,10 @@
             v-model="note"
             @keydown.arrow-up.prevent="focusTitle"
           ></textarea>
-          <button @click="saveNote" class="save">Save</button>
+          <button v-if="checkEmpty()" @click="saveNote" class="save">
+            Save
+          </button>
+          <button v-else @click="saveEdit" class="save">potato</button>
         </div>
       </div>
     </div>
