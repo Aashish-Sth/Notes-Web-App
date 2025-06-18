@@ -1,0 +1,205 @@
+body{
+    /* height: 100vh;
+    width: 100vh; */
+    background-color: #5F5AB2;
+    margin: 0;
+}
+.text{
+    font-family: "Nunito", sans-serif;
+    color: white;
+}
+.head{
+    font-size: 48px;
+    cursor: default;
+}
+.bg-image
+{
+    width: 602px;
+    height: 382px;
+    margin-top: 30px;
+}
+.sub-head{
+    font-size: 30px;
+    /* padding-left: 35px; */
+    margin: 0;
+    margin-top: 15px;
+}
+.description
+{
+    /* padding-left: 35px; */
+    text-align: center;
+    margin: 5px 0 0 0;
+}
+.create{
+    background-color: #3F3D56;
+    border-radius: 12px;
+    width: 250px;
+    height: 50px;
+    margin-top: 15px;
+    border: 0.5px solid #333247;
+    transition: all 0.7s ease-in-out 0s;
+    font-weight: bold;
+}
+.create:hover{
+    background-color: white;
+    color:#3F3D56 ;
+    transition: all 0.7s ease-in-out 0s;
+    border: 0.5px solid #ffffff50;
+}
+.visible{
+    z-index: 2;
+}
+.add-note
+{
+    width: 753px;
+    height: 454px;
+    background-color: #302E59;
+    border-radius: 70px;
+    position: absolute;
+    bottom: 180px;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+
+}
+.note{
+    width: 650px;
+    height: 350px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    resize: none;
+    font-size: 15px;
+}
+.note::placeholder
+{
+    
+    color: #ffffffcc;
+}
+.title
+{
+    height: 50px;
+    width: 650px;
+    font-size: xx-large;
+    font-weight: bold;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+.title::placeholder
+{
+    color: #ffffffcc;
+}
+.cross
+{
+    font-size: 16px;
+    color: #ffffff50;
+    align-self: flex-end;
+    margin-bottom: 10px;
+    margin-right: 35px;
+    cursor: default;
+}
+
+
+.save
+{
+    background-color: white;
+    color: #4F4C93;
+    width: 110px;
+    height: 40px;
+    border-radius: 15px;
+    font-weight: bold;
+    align-self: flex-end;
+    margin-right: 45px;
+    margin-bottom: 22px;
+    border: 0.5px solid;
+    transition: all 0.6s ease-in-out 0s;
+}
+.save:hover{
+    color: white;
+    background-color: #4F4C93;
+    transition: all 0.6s ease-in-out 0s;
+    border: 0.5px solid #4F4C93;
+}
+
+.noteBox{
+    background-color: #403D72;
+    min-width: 158px;
+    min-height: 78px;
+    max-width: 223px;
+    max-height: 242px;
+    border-radius: 15px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    position: relative;
+    transition: all 0.5s ease-in-out 0s;
+}
+.noteBox:hover{
+    transform: scale(1.05);
+    box-shadow: 10px 20px 30px #00000030,-10px 0 30px #00000030;
+}
+.noteBoxTitle{
+    font-size: 16px;
+    margin: 0;
+    margin-bottom: 7px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.noteBoxContent{
+    margin: 0;
+    font-size: 14px;
+    display: -webkit-box;
+    -webkit-line-clamp: 9;
+    line-clamp: 9;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.trash
+{
+    color: white;
+    align-self: flex-end;
+    position: absolute;
+    opacity: 0;
+    padding: 7px;
+    transition: all 0.5s ease-in-out 0s;
+    top: 10px;
+    right: 9px;
+}
+.trash:hover
+{
+    cursor: pointer;
+    color: #e64545;
+    
+}
+.noteBox:hover .trash
+{
+    opacity: 1;
+}
+.addMore
+{
+    font-size: 50px;
+    align-self: last baseline;
+    position: absolute;
+    bottom: 13px;
+    right: 26px;
+    color: white;
+    transition: all 0.5s ease-in-out 0s;
+    cursor: pointer;
+}
+.addMore:hover
+{
+    color: #302E59;
+    transition: all 0.5s ease-in-out 0s;
+}
+.addTextImage
+{
+    width: 100px;
+    position: absolute;
+    bottom: 6px;
+    right: 0px;
+}

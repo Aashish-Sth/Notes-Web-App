@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes.</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <!--Imported fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <!--initial display screen-->
+    <div id="main">
+      <div
+        v-if="notes.length==0"
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-around;
+        "
+      >
+        <h1 class="head text">Create Your First Note</h1>
+        <img class="bg-image" src="images/landingPageImage.svg" alt="" />
+        <h2 class="sub-head text">Create Your First Note</h2>
+        <p class="text description">
+          Add a note about anything (your thoughts<br />
+          on climate change, or your history essay) <br />
+          and share it with the world.
+        </p>
+        <button @click="showNoteAdd" class="text create">Create Note</button>
+      </div>
+
+      <!--Display after adding notes-->
+      <div
+        v-else
+        style="display: flex; flex-direction: column; align-items: center"
+      >
+        <h1 class="head text">Your Notes — All Right Here</h1>
+        <div
+          style="
+            display: grid;
+            justify-content: flex-start;
+            width: 100%;
+            padding-left: 188px;
+            box-sizing: border-box;
+            align-items: flex-start;
+          "
+        >
+          <div v-for="(each,index) in notes" class="noteBox">
+            <i @click="deleteNote(index)" class="bi bi-trash3-fill trash"></i>
+            <h1 class="text noteBoxTitle">{{each.title}}</h1>
+            <p class="text noteBoxContent">{{each.note}}</p>
+          </div>
+
+          <!-- <div class="noteBox"></div> -->
+        </div>
+        <div class="popo">
+          <img class="addTextImage" src="images/addMore.png" alt="" />
+          <i @click="showNoteAdd" class="bi bi-plus-circle-fill addMore"></i>
+        </div>
+      </div>
+
+      <!-- take note pop up -->
+      <div
+        v-if="showNote"
+        @click="saveNote"
+        style="
+          height: 100vh;
+          width: 100vw;
+          background-color: #ffffff20;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: flex;
+          justify-content: center;
+        "
+      >
+        <div
+          @click.stop
+          style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 15px;
+          "
+          class="add-note"
+        >
+          <p class="cross text">{{noteLength+" words"}}</p>
+          <input
+            @keydown="focusNote"
+            ref="titleText"
+            class="title text"
+            type="text"
+            placeholder="Title"
+            v-model="title"
+          />
+          <textarea
+            ref="noteText"
+            class="note text"
+            name=""
+            id=""
+            placeholder="Take your notes here..."
+            v-model="note"
+            @keydown.arrow-up.prevent="focusTitle"
+          ></textarea>
+          <button @click="saveNote" class="save">Save</button>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
