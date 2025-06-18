@@ -68,6 +68,7 @@ body{
     outline: none;
     resize: none;
     font-size: 15px;
+    
 }
 .note::placeholder
 {
@@ -133,6 +134,7 @@ body{
     padding: 20px;
     position: relative;
     transition: all 0.5s ease-in-out 0s;
+    align-self: flex-start;
 }
 .noteBox:hover{
     transform: scale(1.05);
@@ -184,7 +186,7 @@ body{
 {
     font-size: 50px;
     align-self: last baseline;
-    position: absolute;
+    position: fixed;
     bottom: 13px;
     right: 26px;
     color: white;
@@ -199,7 +201,13 @@ body{
 .addTextImage
 {
     width: 100px;
-    position: absolute;
+    position: fixed;
     bottom: 6px;
     right: 0px;
+}
+
+.gridHead
+{
+    grid-column: 1/-1;
+    text-align: center;
 }
