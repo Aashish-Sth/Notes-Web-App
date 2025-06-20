@@ -45,6 +45,12 @@ const notes ={
             }
             this.hideNoteAdd();
         },
+        directBack()
+        {
+          this.hideNoteAdd();
+          this.title="";
+          this.note="";
+        },
         deleteNote(i)
         {
             this.notes.splice(i,1);

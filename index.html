@@ -22,7 +22,7 @@
   </head>
   <body>
     <!--initial display screen-->
-    <div id="main">
+    <div id="main" v-cloak>
       <div
         v-if="notes.length==0"
         style="
@@ -34,7 +34,7 @@
       >
         <h1 class="head text">Create Your First Note</h1>
         <img class="bg-image" src="images/landingPageImage.svg" alt="" />
-        <h2 class="sub-head text">Create Your First Note</h2>
+        <h2 class="sub-head text">Write your thoughts into reality</h2>
         <p class="text description">
           Add a note about anything (your thoughts<br />
           on climate change, or your history essay) <br />
@@ -48,22 +48,7 @@
         v-else
         style="display: flex; flex-direction: column; align-items: center"
       >
-        <div
-          style="
-            width: 100%;
-            padding: 0 10%;
-            box-sizing: border-box;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            grid-template-rows: auto;
-            justify-content: center;
-            margin: 0 auto;
-            /* display: flex;
-            justify-content: flex-start;
-            align-items: flex-start;
-            flex-wrap: wrap; */
-          "
-        >
+        <div class="gridContainer">
           <h1 class="head text gridHead">Your Notes — All Right Here</h1>
           <div
             @click="editNote(index)"
@@ -99,6 +84,7 @@
           left: 0;
           display: flex;
           justify-content: center;
+          align-items: center;
         "
       >
         <div
@@ -111,6 +97,7 @@
           "
           class="add-note"
         >
+          <i @click="directBack" class="bi bi-arrow-left-circle-fill back"></i>
           <p class="cross text">{{noteLength+" words"}}</p>
           <input
             @keydown="focusNote"
