@@ -341,8 +341,9 @@ body{
         width: 350px;
     }
     .bg-image {
-        width: 480px;
+        width: 400px;
         margin-top: 0;
+        margin-bottom: 20px;
     }
     .create
     {
@@ -351,9 +352,11 @@ body{
     }
     .sub-head {
         font-size: 1.50rem;
+        margin-bottom: 10px;
     }
     .description {
         font-size: 0.85rem;
+        margin-bottom: 10px;
     }
     .add-note
     {
@@ -363,11 +366,11 @@ body{
     }
     .title
     {
-        width: 550px;
+        width: 389px;
     }
     .note
     {
-        width: 550px;
+        width: 389px;
     }
     .save
     {
